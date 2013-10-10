@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  parent_action_item_id: 1
+  type: 1
+  status: 1
+  title: MyString
+  long_description: MyString
+  assigned_to_user_id: 1
+  seq: 1
+
+two:
+  project_id: 1
+  parent_action_item_id: 1
+  type: 1
+  status: 1
+  title: MyString
+  long_description: MyString
+  assigned_to_user_id: 1
+  seq: 1
