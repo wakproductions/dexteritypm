@@ -1,0 +1,8 @@
+-if tasks
+  -tasks.each do |task|
+    %tr
+      %td
+      %td{style:"padding-left:#{15*task_level}px"}
+        =link_to task.title, project_task_path(@project, task)
+      %td
+    =render partial:'tasks/task_list', locals:{tasks: task.subtasks, task_level: task_level+1} if task.subtasks.present?

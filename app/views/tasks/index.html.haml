@@ -1,0 +1,14 @@
+%div
+Current Project:
+=@project.project_name
+%br
+%br
+%table{style:'width:800px;border:1px solid black;'}
+  %thead
+    %th{style:'width:100px;text-align:left;background-color:#dddddd;'}
+      Task Type
+    %th{style:'width:600px;text-align:left;background-color:#dddddd;'}
+      Task Name
+    %th{style:'width:100px;text-align:left;background-color:#dddddd;'}
+      Status
+  =render partial: 'tasks/task_list', locals: {tasks: @tasks, task_level:0} if @tasks
