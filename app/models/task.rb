@@ -8,13 +8,17 @@ class Task < ActiveRecord::Base
   }
 
   STATUS={
-      pending: 1,
-      in_process: 2,
-      done: 3
+      TBD: 1,
+      planning: 10,
+      pending: 20,
+      in_process: 30,
+      done: 40
   }
 
   belongs_to :project
   has_many :subtasks, class_name: Task, foreign_key: :parent_task_id
   belongs_to :parent_task, class_name: Task
   has_many :comments
+
+  validates_presence_of :project
 end

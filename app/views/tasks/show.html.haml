@@ -1,0 +1,23 @@
+%p#notice
+  =notice
+
+="Parent Task: #{@task.parent_task.title}" if @task.parent_task
+%br
+%h2
+  =@task.title
+
+
+="Category: #{task_category(@task)}"
+%br
+="Status: #{task_status(@task)}"
+
+.task-description
+  = @task.description || "No description provided."
+
+
+=link_to('Edit', edit_project_task_path(@project, @task)) + ' | '
+=link_to 'Back', project_tasks_path(@project)
+%br
+%br
+%br
+=render 'comments/show'

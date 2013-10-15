@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 td {
@@ -15,6 +15,18 @@ td {
   margin: 0px;
   padding: 0px;
   border: 0px;
-  height: 30px;
+  height: 20px;
   text-align: right;
+  width:100%;
+}
+
+.task-description {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.task-comment-content {
+  background-color: #cccccc;
+  border: 1px solid black;
 }

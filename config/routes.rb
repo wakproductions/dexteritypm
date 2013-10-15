@@ -1,7 +1,9 @@
 Dexteritypm::Application.routes.draw do
   root 'tasks#index', defaults: { project_id: 1 }
   resources :projects, only: [] do
-    resources :tasks, only: [:index, :show]
+    resources :tasks, only: [:index, :show, :edit, :update] do
+      resources :comments, only: [:create]
+    end
   end
   devise_for :users, skip: [:registrations]
   # The priority is based upon order of creation: first created -> highest priority.

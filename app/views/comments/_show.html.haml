@@ -1,0 +1,10 @@
+=render 'comments/form'
+.task-comments
+  -@comments.each do |c|
+    .task-comment-content
+      %strong
+        ="#{c.user.email} #{c.created_at}"
+      %br
+      %br
+      =c.body
+
