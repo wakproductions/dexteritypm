@@ -7,7 +7,8 @@ body {
 }
 
 td {
-  border: 1px solid #aaaaaa;
+  border: 1px solid #cccccc;
+  a:link {text-decoration: none;}
 }
 
 .navbar {
@@ -29,4 +30,12 @@ td {
 .task-comment-content {
   background-color: #cccccc;
   border: 1px solid black;
+}
+
+.task-status-yellow {
+  background-color: #ffff00;
+}
+
+.task-status-green {
+  background-color: #008000;
 }

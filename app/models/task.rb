@@ -21,4 +21,14 @@ class Task < ActiveRecord::Base
   has_many :comments
 
   validates_presence_of :project
+
+  scope :by_status, ->(status){ where(status: status) }
+
+  # This assigns the project in the case that we do a call like:
+  # @task = @project.tasks.find(x).subtasks.new
+  after_initialize do |r|
+    if new_record?
+      r.project_id = parent_task.project_id if parent_task && project_id.nil?
+    end
+  end
 end

@@ -5,7 +5,12 @@ class TasksController < ApplicationController
   # GET /projects/:project_id/tasks
   def index
     @project = Project.find(params[:project_id])
-    @tasks = @project.tasks.where(parent_task_id: nil) if @project.tasks.present?
+    @filter = task_list_filter
+    if @filter && @filter.include?(:status)
+      @tasks = @project.tasks.by_status(@filter[:status]).where(parent_task_id: nil) if @project.tasks.present?
+    else
+      @tasks = @project.tasks.where(parent_task_id: nil) if @project.tasks.present?
+    end
   end
 
   # GET /projects/:project_id/tasks/new
@@ -18,8 +23,20 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /projects/:project_id/tasks/new
+  # POST /projects/:project_id/tasks
   def create
+    @project = Project.find(params[:project_id])
+    if params[:task][:parent_task_id]
+      @task = @project.tasks.find(params[:task][:parent_task_id]).subtasks.new(task_params)
+    else
+      @task = @project.tasks.new(task_params)
+    end
+
+    if @task.save
+      redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.'
+    else
+      render action: 'new'
+    end
   end
 
   # GET /projects/:project_id/tasks/:task_id
@@ -37,16 +54,6 @@ class TasksController < ApplicationController
     else
       render 'edit'
     end
-
-    #respond_to do |format|
-    #  if @tattoo_removal_request.update(tattoo_removal_request_params)
-    #    format.html { redirect_to @tattoo_removal_request, notice: 'Tattoo removal request was successfully updated.' }
-    #    format.json { head :no_content }
-    #  else
-    #    format.html { render action: 'edit' }
-    #    format.json { render json: @tattoo_removal_request.errors, status: :unprocessable_entity }
-    #  end
-    #end
   end
 
 private
@@ -61,6 +68,10 @@ private
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
     params.require(:task).permit(:title, :category, :status, :description)
+  end
+
+  def task_list_filter
+    @filter = params[:filter]
   end
 
 end

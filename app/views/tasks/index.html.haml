@@ -1,6 +1,9 @@
-%div
 Current Project:
 =@project.project_name
+%br
+/Filter:
+/=link_to "Things Being Processed", project_tasks_path(@project, filter: { status: [Task::STATUS[:pending], Task::STATUS[:in_process]] })
+/=link_to "Things Complete", project_tasks_path(@project, filter: { status: Task::STATUS[:done] })
 %br
 %br
 %table{style:'width:800px;border:1px solid black;'}
@@ -12,3 +15,4 @@ Current Project:
     %th{style:'width:100px;text-align:left;background-color:#dddddd;'}
       Status
   =render partial: 'tasks/task_list', locals: {tasks: @tasks, task_level:0} if @tasks
+
