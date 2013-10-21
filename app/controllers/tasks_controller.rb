@@ -8,6 +8,20 @@ class TasksController < ApplicationController
     @tasks = @project.tasks.where(parent_task_id: nil) if @project.tasks.present?
   end
 
+  # GET /projects/:project_id/tasks/new
+  def new
+    @project = Project.find(params[:project_id])
+    if params[:parent_task_id]
+      @task = Project.find(@project).tasks.find(params[:parent_task_id]).subtasks.new
+    else
+      @task = Project.find(@project).tasks.new
+    end
+  end
+
+  # GET /projects/:project_id/tasks/new
+  def create
+  end
+
   # GET /projects/:project_id/tasks/:task_id
   def show
   end

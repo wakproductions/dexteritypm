@@ -1,7 +1,7 @@
 Dexteritypm::Application.routes.draw do
   root 'tasks#index', defaults: { project_id: 1 }
   resources :projects, only: [] do
-    resources :tasks, only: [:index, :show, :edit, :update] do
+    resources :tasks, only: [:index, :show, :edit, :update, :new] do
       resources :comments, only: [:create]
     end
   end

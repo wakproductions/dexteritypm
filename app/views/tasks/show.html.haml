@@ -5,8 +5,9 @@
 %br
 %h2
   =@task.title
-
-
+=link_to '(Create subtask)', new_project_task_path(@project, parent_task_id: @task)
+%br
+%br
 ="Category: #{task_category(@task)}"
 %br
 ="Status: #{task_status(@task)}"

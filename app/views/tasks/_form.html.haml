@@ -8,6 +8,11 @@
           %li
             =msg
 
+  -if @task.parent_task
+    .field
+      ="(Parent task: #{@task.parent_task.title})"
+      =f.hidden_field :parent_task_id
+
   .field
     =f.label :title
     =f.text_field :title, size: 80
