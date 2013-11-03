@@ -1,6 +1,6 @@
 -if tasks
   -tasks.each do |task|
-    %tr
+    %tr{class:task_row_class(task)}
       %td
         =task_category(task)
       %td{style:"padding-left:#{15*task_level}px"}

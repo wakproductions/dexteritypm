@@ -6,8 +6,13 @@ body {
   margin-top: 20px;
 }
 
+table {
+margin-bottom: 20px;
+}
+
 td {
-  border: 1px solid #cccccc;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 3px;
   a:link {text-decoration: none;}
 }
 
@@ -38,4 +43,14 @@ td {
 
 .task-status-green {
   background-color: #008000;
+}
+
+tr.task-category-group {
+  td {
+    background-color: #333333;
+    color: #FFFFFF;
+  }
+  a {
+    color: #FFFFFF;
+  }
 }

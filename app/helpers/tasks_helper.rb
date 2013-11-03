@@ -1,10 +1,10 @@
 module TasksHelper
   def task_status(task)
-    Task::STATUS.key(task.status).to_s.capitalize if task.status
+    Task::STATUS.key(task.status).to_s.capitalize if task.status && task.category != Task::CATEGORY[:group]
   end
 
   def task_category(task)
-    Task::CATEGORY.key(task.category).to_s.capitalize if task.category
+    Task::CATEGORY.key(task.category).to_s.capitalize if task.category && task.category != Task::CATEGORY[:group]
   end
 
   def task_status_class(status)
@@ -13,6 +13,13 @@ module TasksHelper
         'task-status-yellow'
       when Task::STATUS[:done]
         'task-status-green'
+    end
+  end
+
+  def task_row_class(task)
+    case task.category
+      when Task::CATEGORY[:group]
+        'task-category-group'
     end
   end
 
