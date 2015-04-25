@@ -36,10 +36,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
-  gem 'rspec-rails'
+group :test do
+  gem 'rspec-rails',  '~> 2.9'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'cucumber-rails',  '~> 1.4', :require => false
+  gem 'database_cleaner', '~> 1.4' # recommended per cucumber docs
 end
 
 # Use ActiveModel has_secure_password
