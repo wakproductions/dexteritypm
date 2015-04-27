@@ -21,7 +21,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
+group :development, :staging, :test do
   gem 'rspec-rails',  '~> 3.2'
   #gem 'shoulda-matchers' # thinking about discontinuing Shoulda for RSpec 3
   gem 'cucumber-rails',  '~> 1.4', :require => false

@@ -24,6 +24,9 @@ test: &test
   pool: 5
   timeout: 5000
 
+staging:
+
+
 # Production settings to be provided by Heroku
 production:
 
