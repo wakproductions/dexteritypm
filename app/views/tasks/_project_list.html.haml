@@ -1,0 +1,4 @@
+-if @user_projects.count > 1
+  ="Available Projects: "
+  -@user_projects.each do |p|
+    =link_to(p.project_name, project_path(p))

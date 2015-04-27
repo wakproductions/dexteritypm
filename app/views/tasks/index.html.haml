@@ -1,6 +1,8 @@
 Current Project:
 =@project.project_name
 %br
+=render partial: 'project_list'
+%br
 /Filter:
 /=link_to "Things Being Processed", project_tasks_path(@project, filter: { status: [Task::STATUS[:pending], Task::STATUS[:in_process]] })
 /=link_to "Things Complete", project_tasks_path(@project, filter: { status: Task::STATUS[:done] })

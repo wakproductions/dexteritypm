@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update]
+  before_action :set_user_projects
 
   # GET /projects/:project_id/tasks
   def index
@@ -65,7 +66,11 @@ private
     @comment = Comment.new
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # build a list of projects available for the user
+  def set_user_projects
+    @user_projects = current_user.projects.to_a - [@project]
+  end
+
   def task_params
     params.require(:task).permit(:title, :category, :status, :description)
   end

@@ -1,8 +1,16 @@
 ## Dexterity Project Manager
 #### An Agile Project Management Tool
 
-This is a Rails application for collaborating on a software development project using Agile methodologies. It is
-currently an open source project. Please feel free to make pull requests for any new features you would like to add.
+This is a Rails application for collaborating on a software development project using Agile methodologies. The idea
+for this system was spawned out of doing consulting work for bootstrap stage startups but not having a good tool for
+communicating ideas and progress on technical work to my clients. There are numerous commercial programs out there
+for Agile development, but I could not find one that is intuitive for non-technical end-users and for a price that
+can't be beat (free!).
+
+Dexterity PM is currently an open source project. For an rundown on the basic concepts of how this tool works, please
+see the file [CONCEPTS.md](CONCEPTS.md).
+
+Feel free to log a Github issue ticket or make pull requests for any new features you would like to add.
 
 
 ### Cucumber Test Notes
