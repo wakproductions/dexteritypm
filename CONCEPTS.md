@@ -34,7 +34,11 @@ have been developed yet.
 * Acceptance criteria: for now, we’re going to use the “description” part of the task to outline the acceptance criteria. One thing I would like to do eventually is use Markdown to allow more detailed descriptions. Another thing we can do is have a separate acceptance criteria field. Maybe you can add a bunch of different boxes and call them whatever you wish (user story description, acceptance criteria).
 * Checklist: a check list of items could be attached to a task such as “rspec” test or “cucumber test”. Acceptance criteria could be made into a checklist.
 * A task can be assigned to a user.
-* An estimated completion time can be assigned to a task.
+* An estimated completion time can be assigned to a task. Thinking about using Fibonacci sequences for time - planning poker style
 
 ### Task buckets
 * Tasks can be aggregated into higher level groups called task buckets. For example, you might be working in a different bucket for different subcomponents of a system. You might even use buckets to group tasks into release numbers. Buckets give you a means of archiving old tasks.
+
+### Sprits
+* Tasks can be aggregated into sprints
+* Sprints have a due date (i.e. 2 week sprints)
