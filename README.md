@@ -12,17 +12,13 @@ see the file [CONCEPTS.md](CONCEPTS.md).
 
 Feel free to log a Github issue ticket or make pull requests for any new features you would like to add.
 
+### Project Status
 
-### Cucumber Test Notes
+This is not quite ready yet as a minimum viable product, but I am putting the source on Github for collaboration
+and discussion. The [CHANGELOG.md](CHANGELOG.md) will be updated when the first official release is ready.
 
-When doing
 
-    > rake cucumber
+#### Test Notes
 
-you might get the following error message:
-
-    /.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/minitest-4.7.5/lib/minitest/unit.rb:1037:in `block in process_args': invalid option: --profile (OptionParser::InvalidOption)
-
-It seems you can avoid this error by running cucumber as
-
-    > bundle exec cucumber
+The Cucumber test structure is in place for integration testing but the steps have not yet been written. Right now
+I'm most focused on unit testing using RSpec.
