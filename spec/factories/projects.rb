@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :project do
-    project_name "MyString"
+    project_name {  Forgery('internet').domain_name }
   end
 end

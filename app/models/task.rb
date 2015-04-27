@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
       todo: 2,
       bug: 3,
       aesthetic: 4,
-      group: 100
+      group: 100  # deprecated
   }
 
   STATUS={
