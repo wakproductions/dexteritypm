@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   # GET /projects/:project_id/tasks
   def index
     @project = Project.find(params[:project_id])
+    update_user_default_project(@project) if @project
     @filter = task_list_filter
     if @filter && @filter.include?(:status)
       @tasks = @project.tasks.by_status(@filter[:status]).where(parent_task_id: nil) if @project.tasks.present?
@@ -77,6 +78,10 @@ private
 
   def task_list_filter
     @filter = params[:filter]
+  end
+
+  def update_user_default_project(project)
+    current_user.update(default_project: project)
   end
 
 end
