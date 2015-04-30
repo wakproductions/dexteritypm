@@ -13,4 +13,9 @@ describe User do
     user.default_project = project
     expect(user.default_project).to eql(project)
   end
+
+
+  it 'cannot create a task in an unassociated project'
+  it 'cannot move a task in an unassociated project'
+  it 'cannot comment on a task in an unassociated project'
 end

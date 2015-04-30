@@ -1,0 +1,19 @@
+=form_tag(project_task_groups_path(@task_group.project, @task_group)) do |f|
+  - if @task_group.errors.any?
+    #error_explanation
+      %h2
+        ="#{pluralize(@task_group.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - @task_group.errors.full_messages.each do |msg|
+          %li
+            =msg
+
+  .field
+    =label_tag :title
+    =text_field_tag :title, @task_group.title, size: 80
+
+  .field
+    =hidden_field_tag :group, true
+
+  .actions
+    =submit_tag

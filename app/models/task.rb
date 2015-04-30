@@ -4,7 +4,8 @@ class Task < ActiveRecord::Base
       todo: 2,
       bug: 3,
       aesthetic: 4,
-      group: 100  # deprecated
+      technical: 5,
+      group: 100  # to be deprecated
   }
 
   STATUS={
@@ -21,6 +22,8 @@ class Task < ActiveRecord::Base
   has_many :comments
 
   validates_presence_of :project
+  validates_presence_of :title
+  validates_absence_of :parent_task, if: :group?
 
   scope :by_status, ->(status){ where(status: status) }
 
@@ -30,5 +33,9 @@ class Task < ActiveRecord::Base
     if new_record?
       r.project_id = parent_task.project_id if parent_task && project_id.nil?
     end
+  end
+
+  def group?
+    group || category == CATEGORY[:group]
   end
 end

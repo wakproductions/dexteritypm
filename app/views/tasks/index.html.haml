@@ -18,4 +18,4 @@ Current Project:
       Status
   =render partial: 'tasks/task_list', locals: {tasks: @tasks, task_level:0} if @tasks
 
-=link_to "Add New Task", new_project_task_path(@project)
+=link_to("Add New Task", new_project_task_path(@project)) + "|" + link_to("New Group", new_project_task_group_path(@project))

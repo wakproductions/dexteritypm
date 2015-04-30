@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 #require 'capybara/rspec'
 require 'factory_girl'
+require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -41,4 +42,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.infer_spec_type_from_file_location!
+  config.extend ControllerMacros, :type => :controller  # See https://github.com/plataformatec/devise/wiki/How-To:-Test-controllers-with-Rails-3-and-4-%28and-RSpec%29
+  config.include Devise::TestHelpers, :type => :controller
 end

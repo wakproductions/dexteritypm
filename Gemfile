@@ -11,10 +11,10 @@ gem 'bootstrap-sass', '~> 3.3' # previously 3.0.1.0.rc
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 gem 'turbolinks'
-
 gem 'jbuilder', '~> 1.2'
 
 gem 'interactor', '~> 3.1'
+gem 'draper', '~> 1.3'
 gem 'devise', '~> 3.1'
 
 group :doc do
@@ -22,13 +22,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :staging, :test do
+group :development, :test do
   gem 'rspec-rails',  '~> 3.2'
   #gem 'shoulda-matchers' # thinking about discontinuing Shoulda for RSpec 3
   gem 'cucumber-rails',  '~> 1.4', :require => false
   gem 'capybara', '~> 2.4'
   gem 'database_cleaner', '~> 1.4' # recommended per cucumber docs
+end
 
+group :development, :staging, :test do
   # For making mock data
   gem 'factory_girl_rails', '~> 4.5'
   gem 'forgery', '~> 0.6'

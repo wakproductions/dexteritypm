@@ -1,4 +1,6 @@
 module TasksHelper
+  SUBTASK_INDENT=15
+
   def task_status(task)
     Task::STATUS.key(task.status).to_s.capitalize if task.status && task.category != Task::CATEGORY[:group]
   end
@@ -17,10 +19,7 @@ module TasksHelper
   end
 
   def task_row_class(task)
-    case task.category
-      when Task::CATEGORY[:group]
-        'task-category-group'
-    end
+    'task-category-group' if task.group?
   end
 
   def subtasks_by_status(task)

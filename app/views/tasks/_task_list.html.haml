@@ -3,7 +3,7 @@
     %tr{class:task_row_class(task)}
       %td
         =task_category(task)
-      %td{style:"padding-left:#{15*task_level}px"}
+      %td{style:"padding-left:#{TasksHelper::SUBTASK_INDENT*task_level}px"}
         =link_to task.title, project_task_path(@project, task)
       %td{class:task_status_class(task.status)}
         =task_status(task)
