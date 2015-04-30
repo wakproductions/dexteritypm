@@ -8,7 +8,7 @@ class TaskGroupsController < ApplicationController
 
   # POST project/:project_id/groups
   def create
-    result = CreateTaskGroup.call(params)
+    result = CreateTaskGroup.call(task_group_params.merge({project_id: params[:project_id]}))
     @task_group = result.task_group
 
     if result.success?
@@ -17,4 +17,11 @@ class TaskGroupsController < ApplicationController
       render action: 'new'
     end
   end
+
+  private
+
+  def task_group_params
+    params.require(:task_group).permit(:title)
+  end
+
 end

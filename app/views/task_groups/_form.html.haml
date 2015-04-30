@@ -10,7 +10,7 @@
 
   .field
     =label_tag :title
-    =text_field_tag :title, @task_group.title, size: 80
+    =text_field_tag "task_group[title]", @task_group.title, size: 80
 
   .field
     =hidden_field_tag :group, true

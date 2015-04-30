@@ -16,7 +16,7 @@ describe TaskGroupsController do
   describe "POST #create" do
     context "with valid attributes" do
       it 'redirects to the project home' do
-        params = FactoryGirl.attributes_for(:task_group, project_id: project.id)
+        params = { task_group: FactoryGirl.attributes_for(:task_group), project_id: project.id}
         post :create, params
         expect(response).to redirect_to(project_tasks_path(project_id: project.id))
       end
