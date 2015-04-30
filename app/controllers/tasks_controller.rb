@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update]
-  before_action :set_user_projects
+  before_action :set_user_projects, only: [:index]
 
   # GET /projects/:project_id/tasks
   def index
     @project = Project.find(params[:project_id])
-    update_user_default_project(@project) if @project
+    update_user_default_project(@project) if current_user.default_project != @project
     @filter = task_list_filter
     if @filter && @filter.include?(:status)
       @tasks = @project.tasks.by_status(@filter[:status]).where(parent_task_id: nil) if @project.tasks.present?
