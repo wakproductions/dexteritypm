@@ -1,6 +1,8 @@
 ## Dexterity Project Manager
 #### An Agile Project Management Tool
 
+[![Build Status](https://travis-ci.org/wakproductions/dexteritypm.svg?branch=master)](https://travis-ci.org/wakproductions/dexteritypm) [![Code Climate](https://codeclimate.com/github/wakproductions/dexteritypm/badges/gpa.svg)](https://codeclimate.com/github/wakproductions/dexteritypm)
+
 This is a Rails application for collaborating on a software development project using Agile methodologies. The idea
 for this system was spawned out of doing consulting work for bootstrap stage startups but not having a good tool for
 communicating ideas and progress on technical work to my clients. There are numerous commercial programs out there
