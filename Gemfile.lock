@@ -242,6 +242,7 @@ DEPENDENCIES
   newrelic_rpm (~> 3.11)
   pg
   rails (= 4.0.0)
+  rake (~> 10)
   rspec-rails (~> 3.2)
   sass-rails (~> 4.0.0)
   sdoc

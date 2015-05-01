@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
+gem 'rake', '~> 10'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -16,8 +17,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'interactor', '~> 3.1'
 gem 'draper', '~> 1.3'
 gem 'devise', '~> 3.1'
-
-gem 'newrelic_rpm', '~> 3.11'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -41,6 +40,10 @@ group :development, :staging, :test do
   # For making mock data
   gem 'factory_girl_rails', '~> 4.5'
   gem 'forgery', '~> 0.6'
+end
+
+group :production do
+  gem 'newrelic_rpm', '~> 3.11'
 end
 
 # Use ActiveModel has_secure_password
