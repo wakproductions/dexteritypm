@@ -17,9 +17,16 @@ gem 'interactor', '~> 3.1'
 gem 'draper', '~> 1.3'
 gem 'devise', '~> 3.1'
 
+gem 'newrelic_rpm', '~> 3.11'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'guard', '~> 2.12'
+  gem 'guard-rspec', '~> 4.5', require: false
 end
 
 group :development, :test do
