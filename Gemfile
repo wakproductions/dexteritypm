@@ -1,22 +1,30 @@
+ruby '2.2.2'
 source 'https://rubygems.org'
-ruby '2.0.0'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular', '~> 1.3'
+  group :development, :test do
+    gem 'rails-assets-angular-mocks', '~> 1.3'
+  end
+end
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.2'
 gem 'rake', '~> 10'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails', '~> 4.1'
 gem 'haml', '~> 4.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3' # previously 3.0.1.0.rc
-gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
-gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'turbolinks', '~> 2.5'
 gem 'jbuilder', '~> 1.2'
+gem 'json', '~> 1.8.2' # Version 1.8.0 broken with Ruby 2.2 see https://github.com/flori/json/issues/229
+gem 'responders', '~> 2.0'
 
 gem 'interactor', '~> 3.1'
 gem 'draper', '~> 1.3'
-gem 'devise', '~> 3.1'
+gem 'devise', '~> 3.4'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -26,6 +34,7 @@ end
 group :development do
   gem 'guard', '~> 2.12'
   gem 'guard-rspec', '~> 4.5', require: false
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
@@ -45,15 +54,3 @@ end
 group :production do
   gem 'newrelic_rpm', '~> 3.11'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

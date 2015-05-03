@@ -19,9 +19,9 @@ class TasksController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     if params[:parent_task_id]
-      @task = Project.find(@project).tasks.find(params[:parent_task_id]).subtasks.new
+      @task = Project.find(@project.id).tasks.find(params[:parent_task_id]).subtasks.new
     else
-      @task = Project.find(@project).tasks.new
+      @task = Project.find(@project.id).tasks.new
     end
   end
 
@@ -35,7 +35,8 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-      redirect_to project_task_path(@project, @task), notice: 'Task was successfully created.'
+      flash[:notice] = 'Task was successfully created.'
+      redirect_to project_task_path(project_id: @project.id, id: @task.id)
     else
       render action: 'new'
     end
