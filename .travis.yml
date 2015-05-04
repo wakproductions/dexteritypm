@@ -5,8 +5,7 @@ gemfile:
   - Gemfile
 addons:
   postgresql: "9.3"
-script:
-  - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rspec
+before_script:
+  - bundle exec rake db:create db:migrate db:schema:load RAILS_ENV=test
 notifications:
   email: false
