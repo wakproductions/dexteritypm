@@ -4,6 +4,7 @@ describe TasksController do
   login_user
   let(:project) { FactoryGirl.create(:project) }
   let(:new_feature_task_attributes) { FactoryGirl.attributes_for(:new_feature_task) }
+  before { subject.current_user.projects << project }
 
   describe "GET #new" do
     it 'renders the :new view with template' do
@@ -60,6 +61,27 @@ describe TasksController do
         is_expected.to render_template(:new)
         expect(assigns(:task).errors.count).to be > 0
       end
+    end
+  end
+
+  describe "GET #move" do
+    let(:tasks) { FactoryGirl.create_list(:new_feature_task, 3, project_id: project.id) }
+    let(:params) { { task_id: tasks.first.id, project_id: project.id } }
+
+    it 'renders the move template' do
+      get :move, params
+      is_expected.to render_template(:move)
+    end
+  end
+
+  describe "PUT #move_action" do
+    let(:first_task) { FactoryGirl.create(:new_feature_task, project_id: project.id) }
+    let(:second_task) { FactoryGirl.create(:new_feature_task, project_id: project.id) }
+    let(:params) { { project_id: project.id, task_id: first_task.id, to_task_id: second_task.id } }
+
+    it 'moves the first task to become a child of the second task' do
+      put :move_action, params
+      expect(Task.find(first_task.id).parent_task_id).to eql(second_task.id)
     end
   end
 end

@@ -38,4 +38,12 @@ class Task < ActiveRecord::Base
   def group?
     group || category == CATEGORY[:group]
   end
+
+  # Returns a hash which can be converted to JSON for use with the jsTree view component.
+  # Consider putting this into a decorator at a later time.
+  def to_jsTree
+    result = { id: id, text: title }
+    result[:children] = subtasks.map { |subtask| subtask.to_jsTree } if subtasks.count > 0
+    result
+  end
 end

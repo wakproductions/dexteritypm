@@ -6,6 +6,7 @@ gemfile:
 addons:
   postgresql: "9.3"
 before_script:
+  #- bundle install --without development test  # <- may need this line to not install spring, will see
   - bundle exec rake db:create db:migrate db:schema:load RAILS_ENV=test
 notifications:
   email: false

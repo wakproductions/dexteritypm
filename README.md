@@ -24,3 +24,9 @@ and discussion. The [CHANGELOG.md](CHANGELOG.md) will be updated when the first 
 
 The Cucumber test structure is in place for integration testing but the steps have not yet been written. Right now
 I'm most focused on unit testing using RSpec.
+
+#### Useful articles on Rails design best practices
+
+[API Design for AJAX/Angular Calls](http://collectiveidea.com/blog/archives/2013/06/13/building-awesome-rails-apis-part-1/)
+[AngularJS setup tutorial](http://sebastien.saunier.me/blog/2014/02/04/angular--rails-with-no-fuss.html)
+

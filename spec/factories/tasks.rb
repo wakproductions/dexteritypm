@@ -27,5 +27,4 @@ FactoryGirl.define do
     factory :new_feature_task, traits: [:new_feature]
     factory :task_group, traits: [:group]
   end
-
 end

@@ -11,7 +11,3 @@
   and a group aggregator category does not fit this description.
 
 ### Technical Notes
-* A Task should not be able to change from one project to another. Nor should a subtask be able to change its
-  parent to a different task. (Subtasks are breakdowns of the work involved in doing a Task.) However, rather than
-  complicating the Task model by using before/after hook validations for this, we believe it is better to implement
-  this validation through an interactor.

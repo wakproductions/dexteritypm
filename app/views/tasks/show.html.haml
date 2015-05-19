@@ -4,7 +4,10 @@ Current Project:
 %p#notice
   =notice
 
-="Parent Task: #{@task.parent_task.title}" if @task.parent_task
+-if @task.parent_task
+  ="Parent Task: #{link_to(@task.parent_task.title, project_task_path(@task.project_id, @task.parent_task_id))} [#{link_to("Move", project_task_move_path(project_id: @project.id, task_id: @task.id, selected_task_id: @task.id))}]".html_safe
+-else
+  ="Parent Task: <No parent task> [#{link_to("Move", project_task_move_path(project_id: @project.id, task_id: @task.id, selected_task_id: @task.id))}]".html_safe
 %br
 %h2
   =@task.title

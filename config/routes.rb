@@ -3,10 +3,20 @@ Dexteritypm::Application.routes.draw do
   #root 'tasks#index', defaults: { project_id: 1 }
   resources :projects, only: [:show] do
     resources :tasks, only: [:index, :show, :edit, :update, :new, :create] do
+      get 'move', to: 'tasks#move'
+      put 'move', to: 'tasks#move_action'
       resources :comments, only: [:create]
     end
     resources :task_groups, only: [:new, :create, :show, :edit, :update]
   end
+
+  namespace :api, :defaults => {:format => :json} do
+    resources :projects, only: [] do
+      get 'tasks/jstree', to: 'tasks#jstree'
+      resources :tasks, only: [:index] # Only feature right now is to grab a list of subtasks for displaying on the edit (move) task for
+    end
+  end
+
   devise_for :users, skip: [:registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

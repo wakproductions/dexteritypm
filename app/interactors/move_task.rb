@@ -1,4 +1,4 @@
-class MoveSubtask
+class MoveTask
   include Interactor
 
   def call
@@ -10,7 +10,7 @@ class MoveSubtask
     elsif task.id == new_parent_task.id
       context.fail!(error: "Cannot move a task to become a child of itself.")
     else
-      task.update(parent_task: new_parent_task)
+      context.success = task.update(parent_task: new_parent_task)
     end
 
   end

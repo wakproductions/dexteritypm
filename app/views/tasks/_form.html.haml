@@ -9,9 +9,7 @@
             =msg
 
   -if @task.parent_task
-    .field
-      ="(Parent task: #{@task.parent_task.title})"
-      =f.hidden_field :parent_task_id
+    ="Parent task: #{@task.parent_task.title}"
 
   .field
     =f.label :title
