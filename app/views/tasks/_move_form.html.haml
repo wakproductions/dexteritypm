@@ -1,0 +1,26 @@
+%h2 Move Task to New Parent Task or Group
+
+%div{ style: "margin-bottom: 15px;" }
+  Task: "#{@task.title}"
+
+#jstree_tasks
+
+=form_tag project_task_move_path(project: @project.id, task: @task.id), method: :put, id: "move_task_form" do
+  =hidden_field_tag "to_task_id", nil
+  =submit_tag "Move"
+
+:coffee
+  $('#jstree_tasks').jstree({
+    'core' :
+      'themes':
+        'stripes' : true
+        'dots': false
+      'data' :
+        'url': '#{ api_project_tasks_jstree_path(project_id: @project.id, selected_task_id: @selected_task.id) }'
+        'dataType' : 'json'
+  })
+
+  $('#jstree_tasks').on("changed.jstree", (e, data)->
+    $('form#move_task_form > input[name="to_task_id"]').val(data.selected[0]);
+  )
+

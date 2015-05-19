@@ -14,6 +14,11 @@ describe MoveSubtask do
       expect(result).to be_a_failure
     end
 
+    it 'cannot become a child of itself' do
+      result = MoveSubtask.call(task: task, to_task: task)
+      expect(result).to be_a_failure
+    end
+
     context 'when the task does not belong to a group' do
       it 'can move the task to become the subtask (child) of another task' do
         result = MoveSubtask.call(task: task, to_task: another_task)
@@ -42,9 +47,9 @@ describe MoveSubtask do
       let(:parent_task) { task }
       let(:subtask) { parent_task.subtasks.create(FactoryGirl.attributes_for(:new_feature_task)) }
 
-      it 'cannot move the task to be the child of another task' do
+      it 'can move the task to be the child of another task' do
         result = MoveSubtask.call(task: subtask, to_task: another_task)
-        expect(result).to be_a_failure
+        expect(result).to be_a_success
       end
 
     end

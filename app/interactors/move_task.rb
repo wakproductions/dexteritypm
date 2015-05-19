@@ -7,8 +7,8 @@ class MoveSubtask
 
     if task.project != new_parent_task.project
       context.fail!(error: "Cannot move task to another project.")
-    elsif task.parent_task.present? && !task.parent_task.group? && task.parent_task != new_parent_task
-      context.fail!(error: "Cannot move a subtask to become the subtask of another task")
+    elsif task.id == new_parent_task.id
+      context.fail!(error: "Cannot move a task to become a child of itself.")
     else
       task.update(parent_task: new_parent_task)
     end
