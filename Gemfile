@@ -7,7 +7,7 @@ source 'https://rails-assets.org' do
   end
 end
 
-gem 'rails', '4.2'
+gem 'rails', '~> 4.2'
 gem 'rake', '~> 10'
 gem 'pg', '~> 0.18'
 gem 'sass-rails', '~> 5.0'

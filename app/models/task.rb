@@ -13,7 +13,8 @@ class Task < ActiveRecord::Base
       planning: 10,
       pending: 20,
       in_process: 30,
-      done: 40
+      done: 40,
+      cancelled: 50
   }
 
   belongs_to :project
