@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1'
 gem 'haml', '~> 4.0'
 gem 'jquery-rails', '~> 4.0'
 gem 'bootstrap-sass', '~> 3.3' # previously 3.0.1.0.rc
-gem 'jstree-rails', :git => 'git://github.com/wakproductions/jstree-rails.git'
+gem 'jstree-rails', '~> 3.1', :git => 'git://github.com/wakproductions/jstree-rails.git'
 
 gem 'uglifier', '~> 2.7'
 gem 'turbolinks', '~> 2.5'
